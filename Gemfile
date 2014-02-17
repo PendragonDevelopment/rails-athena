@@ -10,7 +10,7 @@ group :assets do
 end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '2.3.2.2' 
 gem 'cancan'
 gem 'devise',           '~> 2.2.0'
 gem 'devise_invitable', '~> 1.1.0'
