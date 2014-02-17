@@ -1,4 +1,21 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
+<% content_for :masthead do %>
+  <header id="main-header">
+  	<div class="container">
+  	  <div class="row">
+  	   <div class="span12">
+  	      <%= image_tag("RG_LogoFinal.png", :class => "header-image") %>
+  	    </div> 
+  	  </div>
+  	</div>
+  </header>
 <% end %>
+<section id="macbook">
+  <div class="container">
+    <h2>What's this all about?</h2>
+    <p>Fore was designed and built by <a href="http://www.jrdnbwmn.com" target="_blank">Jordan Bowman</a>. It is released for free on <a href="http://eatapapaya.com" target="_blank">Papaya</a> under the <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution license</a>. Use it – I hope you make millions of dollars and find a hot spouse with it.</p>
+  </div>
+</section>
+					<h3>Home</h3>
+					<% @users.each do |user| %>
+					  <p>User: <%=link_to user.name, user %></p>
+					<% end %>

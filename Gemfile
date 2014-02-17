@@ -70,3 +70,6 @@ gem 'bootstrap-datepicker-rails'
 
 # Email preview in the browser
 gem "letter_opener", :group => :development
+
+# Static pages
+gem 'high_voltage', '~> 2.1.0'
