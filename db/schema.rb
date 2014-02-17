@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140217200913) do
+ActiveRecord::Schema.define(:version => 20140217202404) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -78,6 +78,17 @@ ActiveRecord::Schema.define(:version => 20140217200913) do
 
   add_index "workshop_sponsors", ["sponsor_id"], :name => "index_workshop_sponsors_on_sponsor_id"
   add_index "workshop_sponsors", ["workshop_id"], :name => "index_workshop_sponsors_on_workshop_id"
+
+  create_table "workshop_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "workshop_id"
+    t.string   "workshop_role"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "workshop_users", ["user_id"], :name => "index_workshop_users_on_user_id"
+  add_index "workshop_users", ["workshop_id"], :name => "index_workshop_users_on_workshop_id"
 
   create_table "workshops", :force => true do |t|
     t.datetime "start_date"
