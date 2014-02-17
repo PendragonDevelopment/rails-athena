@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140217200208) do
+ActiveRecord::Schema.define(:version => 20140217200741) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20140217200208) do
     t.text     "description"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "slug"
   end
 
   create_table "users", :force => true do |t|
@@ -67,6 +68,16 @@ ActiveRecord::Schema.define(:version => 20140217200208) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "workshop_sponsors", :force => true do |t|
+    t.integer  "sponsor_id"
+    t.integer  "workshop_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "workshop_sponsors", ["sponsor_id"], :name => "index_workshop_sponsors_on_sponsor_id"
+  add_index "workshop_sponsors", ["workshop_id"], :name => "index_workshop_sponsors_on_workshop_id"
 
   create_table "workshops", :force => true do |t|
     t.datetime "start_date"
