@@ -14,6 +14,7 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  slug        :string(255)
 #
 
 class Workshop < ActiveRecord::Base
@@ -27,4 +28,8 @@ class Workshop < ActiveRecord::Base
 
   has_many :sponsors,
   				 :through => :workshop_sponsors
+  				 
+	def address
+		"#{street} #{street2 if !street2.nil?}<br/>#{city}, #{state} #{zipcode}"
+	end
 end

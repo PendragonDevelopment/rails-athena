@@ -30,4 +30,18 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+
+  private
+
+  # Require that :user be a key in the params Hash,
+  # and only accept :name, and :email attributes,
+  # with :role_ids accessible for administrators
+
+  def user_params
+    if current_user && current_user.has_role?(:admin)
+      params.require(:user).permit(:name, :email, :role_ids)
+    else
+      params.require(:user).permit(:name, :email)
+    end
+  end
 end

@@ -14,6 +14,7 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  slug        :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

@@ -16,6 +16,10 @@ RailsLadiesAthens::Application.configure do
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
+
+  # Use letter_opener when previewing emails
+  config.action_mailer.delivery_method = :letter_opener
+  
   # change to true to allow email to be sent during development
   config.action_mailer.perform_deliveries = false
   config.action_mailer.raise_delivery_errors = true
@@ -42,13 +46,15 @@ RailsLadiesAthens::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "smtp.mandrillapp.com",
     port: 587,
-    domain: ENV["DOMAIN_NAME"],
+    domain: "http://getvitaminc.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: ENV["MANDRILL_USERNAME"],
+    password: ENV["MANDRILL_PASSWORD"]
   }
+
+  Paperclip.options[:command_path] = "C:/ImageMagick"
 
 end
