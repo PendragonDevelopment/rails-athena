@@ -1,1 +1,11 @@
 <h3>Workshops and other events</h3>
+<% @workshops.each do |w| %>
+  <div class="row-fluid">
+    <h4><%= link_to w.title, workshop_path(w) %></h4>
+    <% if ((w.end_date - w.start_date) / 1.day).round <= 0 %>
+      <h5><%= w.end_date.strftime("%B %e, %Y") %></h5>
+    <% else %>
+      <h5><%= w.start_date.strftime("%B %e") %> - <%= w.end_date.strftime("%e, %Y") %></h5>
+    <% end %>
+  </div>
+<% end %>

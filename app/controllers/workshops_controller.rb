@@ -1,6 +1,7 @@
 class WorkshopsController < ApplicationController
   def index
-  	@workshops = Workshop.all
+  	@workshops = Workshop.upcoming
+    @next = @workshops.next
   end
 
   def show
