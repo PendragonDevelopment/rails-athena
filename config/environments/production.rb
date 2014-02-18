@@ -64,7 +64,7 @@ RailsLadiesAthens::Application.configure do
  config.action_mailer.smtp_settings = {
     address: "smtp.mandrillapp.com",
     port: 587,
-    domain: "http://getvitaminc.com",
+    domain: "http://www.railsgirlsathens.com",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["MANDRILL_USERNAME"],
@@ -72,7 +72,7 @@ RailsLadiesAthens::Application.configure do
   }
 
 
-  config.action_mailer.default_url_options = { :host => 'alpha.getvitaminc.com' }
+  config.action_mailer.default_url_options = { :host => 'www.railsgirlsathens.com' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
