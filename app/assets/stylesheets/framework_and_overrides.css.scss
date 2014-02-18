@@ -22,7 +22,7 @@ body,select,input,textarea {
 }
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: inherit;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 900;
   line-height: 1.2;
 }
@@ -150,12 +150,13 @@ header {
   border-bottom: 0;
 }
 
-#macbook {
+#landing {
   text-align: center;
   padding: 4em 0 0 0;
+  margin-top:-5em;
 }
 
-#macbook img {
+#landing img {
   margin: 5em 0 0 0;
   width: 80%;
 }
@@ -305,7 +306,7 @@ header {
 }
 
 #list {
-  padding: 4em 0 4em 0;
+  padding: 0 0 4em 0;
 }
 
 #list i {

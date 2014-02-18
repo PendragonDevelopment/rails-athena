@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Rails Ladies Athens" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Ladies Athens" %>">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700|Ubuntu:400,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -14,6 +17,9 @@
     </div>
     <%= yield :masthead %>
     <main role="main">
+      <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chrome/‎">install Google Chrome</a> to experience this site.</p>
+      <![endif]-->
       <%= render 'layouts/messages' %>
       <div class="container">
         <div class="content">
@@ -48,7 +54,7 @@
           </div>
         </div>
         <div id="footer-text" class="small">
-          <p>&copy; Rails Girls Athens 2014 | A <a href="http://www.railsgirls.org">RailsGirls</a> Organization | Design by <a href="http://www.eatapapaya.com" target="_blank">Papaya</a></p>
+          <p>&copy; Rails Girls Athens 2014 | A <a href="http://www.railsgirls.com">RailsGirls</a> Organization | Fore was designed and built by <a href="http://www.jrdnbwmn.com" target="_blank">Jordan Bowman</a> for <a href="http://www.eatapapaya.com" target="_blank">Papaya</a></p>
         </div>
       </div>
     </footer>
