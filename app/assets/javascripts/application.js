@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
+//= require bootstrap-datetimepicker
+//= require_self
+//= require_tree ./models

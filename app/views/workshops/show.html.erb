@@ -1,0 +1,20 @@
+<h3><%= @workshop.title %></h3>
+<div class="row-fluid">
+  <div class="span4 pull-right">
+  	<%= simple_form_for(@workshop, :url => add_sponsor_to_workshop_path, :html => {:class => 'form-horizontal form-validate' }) do |f| %>
+  		<%= f.error_notification %>
+  		<%= hidden_field_tag :workshop_id, @workshop.id %>
+  		<%= select_tag :sponsor_id, options_for_select(@sponsor_array), {:class => "span12"} %>
+  		<%= f.button :submit, "Add sponsor to workshop", :class => "btn btn-primary" %>
+  	<% end %>
+  	<h4>Sponsors</h4>
+  	<ul class="unstyled">
+  		<% @sponsors.each do |sponsor| %>
+  			<li><h5><%= link_to sponsor.name, sponsor.website %></h5></li>
+  		<% end %>
+  	</ul>
+  </div>
+  <div class="span8">
+  	
+  </div>
+</div>

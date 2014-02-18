@@ -31,6 +31,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def the_team
+    @team = []
+    @users = User.all
+    @users.each do |user|
+      if user.has_role?(:admin) || user.has_role?(:coach) || user.has_role?(:volunteer)
+        @team << user
+      end
+    end
+  end
+
   private
 
   # Require that :user be a key in the params Hash,

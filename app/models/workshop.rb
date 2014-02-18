@@ -21,14 +21,15 @@ class Workshop < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
   extend FriendlyId
   friendly_id :title, use: :slugged
-  rolify
 
   has_many :workshop_sponsors,
   				 :dependent => :destroy
 
   has_many :sponsors,
   				 :through => :workshop_sponsors
-  				 
+
+  scope :next, where(['start_date > ?', DateTime.now]).order("start_date ASC").first
+  
 	def address
 		"#{street} #{street2 if !street2.nil?}<br/>#{city}, #{state} #{zipcode}"
 	end

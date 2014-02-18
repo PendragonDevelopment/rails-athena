@@ -68,6 +68,9 @@ gem 'pry'
 # bootstrap-datepicker
 gem 'bootstrap-datepicker-rails'
 
+# bootstrap-datetimepicker
+gem 'bootstrap-datetimepicker-rails'
+
 # Email preview in the browser
 gem "letter_opener", :group => :development
 
