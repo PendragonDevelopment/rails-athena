@@ -2,6 +2,6 @@
 <% @sponsors.each do |s| %>
   <div class="row-fluid">
     <h3><%= s.name %></h3>
-    <%= image_tag(s.logo.url) %>
+    <%= image_tag(s.logo.url(:medium)) %>
   </div>
 <% end %>
