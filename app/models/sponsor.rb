@@ -38,10 +38,11 @@ class Sponsor < ActiveRecord::Base
 	          small: '100x100>',
 	          medium: '300x300>'
 	        },
-	        :default_url => "/images/avatars/:style/missing.png",
+	        :default_url => "/images/logos/:style/missing.png",
 	        s3_permissions: "public-read"
 
-  validates_attachment_content_type :logo, :content_type => %w(image/jpeg image/jpg image/png)
+  validates_attachment_presence :logo
+  validates_attachment :logo, :content_type => { :content_type => ["image/jpg", "image/gif", "image/png"] }   
 
 	def address
 		"#{street} #{street2 if !street2.nil?}<br/>#{city}, #{state} #{zipcode}"

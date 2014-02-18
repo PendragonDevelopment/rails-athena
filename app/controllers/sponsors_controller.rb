@@ -13,11 +13,6 @@ class SponsorsController < ApplicationController
 
   def edit
   	@sponsor = Sponsor.find(params[:id])
-    if @sponsor.update_attributes(sponsor_params)
-      redirect_to sponsor_path(@sponsor), :notice => "Sponsor updated."
-    else
-      render :edit, :notice => "Error! Something went wrong!"
-    end
   end
 
   def create
@@ -31,12 +26,17 @@ class SponsorsController < ApplicationController
 
   def update
     @sponsor = Sponsor.find(params[:id])
+    if @sponsor.update_attributes(sponsor_params)
+      redirect_to sponsor_path(@sponsor), :notice => "Sponsor updated."
+    else
+      render :edit, :notice => "Error! Something went wrong!"
+    end
   end
 
   private
 
   def sponsor_params
-  	params.require(:sponsor).permit(:name, :website, :street, :street2,
+  	params.require(:sponsor).permit(:name, :website, :phone, :street, :street2,
   																	:city, :state, :zipcode, :logo,
   																	:description)
   end
