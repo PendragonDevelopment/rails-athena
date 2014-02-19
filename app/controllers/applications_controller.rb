@@ -4,6 +4,9 @@ class ApplicationsController < ApplicationController
   end
 
   def show
+    @application = Application.find(params[:id])
+    @user = @application.user
+    @workshop = @application.workshop
   end
 
   def new

@@ -1,2 +1,47 @@
-<h1>Applications#show</h1>
-<p>Find me in app/views/applications/show.html.erb</p>
+<div class="row-fluid">
+  <h3>Application for <%= @user.name %></h3>
+</div>
+<div class="row-fluid">
+  <h4>Workshop: <%= @workshop.title%></h4>
+  <% if ((@workshop.end_date - @workshop.start_date) / 1.day).round <= 0 %>
+    <h5><%= @workshop.end_date.strftime("%B %e, %Y") %></h5>
+  <% else %>
+    <h5><%= @workshop.start_date.strftime("%B %e") %> - <%= @workshop.end_date.strftime("%e, %Y") %></h5>
+  <% end %>
+</div>
+<div class="row-fluid">
+  <dl>
+    <dt>What is your experience level with computers and technology?</dt>
+    <dd><%= raw(@application.experience_level) %></dd>
+  </dl>
+</div>
+<div class="row-fluid">
+  <dl>
+    <dt>Do you have any previous programming experience?</dt>
+    <dd><%= raw(@application.previous_experience) %></dd>
+  </dl>
+</div>
+<div class="row-fluid">
+  <dl>
+    <dt>Are you familiar with Ruby on Rails? Have you ever built anything with it?</dt>
+    <dd><%= raw(@application.rails_experience) %></dd>
+  </dl>
+</div>
+<div class="row-fluid">
+  <dl>
+    <dt>Why do you think you'll be a good candidate for this workshop? Do you have any plans to expand on what you learn?</dt>
+    <dd><%= raw(@application.good_candidate) %></dd>
+  </dl>
+</div>
+<div class="row-fluid">
+  <dl>
+    <dt>Why do you want to learn Ruby on Rails?</dt>
+    <dd><%= raw(@application.why_rails) %></dd>
+  </dl>
+</div>
+<div class="row-fluid">
+  <dl>
+    <dt>Do you have any questions for us?</dt>
+    <dd><%= raw(@application.questions) %></dd>
+  </dl>
+</div>
