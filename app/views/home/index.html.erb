@@ -24,6 +24,7 @@
       <% else %>
         <h5><%= @next.start_date.strftime("%B %e") %> - <%= @next.end_date.strftime("%e, %Y") %></h5>
       <% end %>
+      <%= link_to "Apply for this workshop", new_application_path(:workshop_id => @next.id), :class => 'btn btn-primary' %>
     </div>
     <div class="span8">
       <p>Rails Girls events are non-profit. We don’t charge the participants and do not pay for coaches or speakers. Participants don’t need any previous knowledge about programming and there are no age limitations. All the participants need is a laptop and some curiosity.</p>

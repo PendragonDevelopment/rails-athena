@@ -12,11 +12,12 @@
   	<h4>Sponsors</h4>
   	<ul class="unstyled">
   		<% @sponsors.each do |sponsor| %>
-  			<li><%= image_tag(sponsor.logo.url(:small)) %><h5><%= link_to sponsor.name, sponsor.website %></h5></li>
+  			<li><h5><%= link_to sponsor.name, sponsor.website %></h5><%= image_tag(sponsor.logo.url(:small)) %></li>
   		<% end %>
   	</ul>
   </div>
   <div class="span8">
   	<p><%= raw(@workshop.description) %></p>
+    <%= link_to "Apply for this workshop", new_application_path(:workshop_id => @workshop.id), :class => 'btn btn-primary pull-right' %>
   </div>
 </div>
