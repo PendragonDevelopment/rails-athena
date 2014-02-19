@@ -28,6 +28,13 @@ class Workshop < ActiveRecord::Base
   has_many :sponsors,
   				 :through => :workshop_sponsors
 
+  has_many :applications
+
+  has_many :workshop_users
+
+  has_many :users,
+           :through => :workshop_users
+
   def self.upcoming
     where(['start_date > ?', DateTime.now]).order("start_date ASC")
   end

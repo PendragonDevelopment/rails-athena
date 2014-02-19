@@ -45,5 +45,7 @@ class User < ActiveRecord::Base
 
   has_many :workshops,
   				 :through => :workshop_users
+
+  has_many :applications
   
 end

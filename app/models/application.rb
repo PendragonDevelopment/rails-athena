@@ -1,5 +1,24 @@
+# == Schema Information
+#
+# Table name: applications
+#
+#  id                  :integer          not null, primary key
+#  user_id             :integer
+#  workshop_id         :integer
+#  experience_level    :text
+#  previous_experience :text
+#  rails_experience    :string(255)
+#  good_candidate      :text
+#  why_rails           :text
+#  questions           :text
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 class Application < ActiveRecord::Base
+  include ActiveModel::ForbiddenAttributesProtection
+
   belongs_to :user
   belongs_to :workshop
-  attr_accessible :experience_level, :good_candidate, :previous_experience, :questions, :rails_experience, :why_rails
+  
 end
