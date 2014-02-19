@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:the_team]
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user], :as => :admin)
+    if @user.update_attributes(user_params, :as => :admin)
       redirect_to users_path, :notice => "User updated."
     else
       redirect_to users_path, :alert => "Unable to update user."
