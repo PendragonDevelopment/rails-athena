@@ -7,7 +7,7 @@
       <p><%= raw(@sponsor.address) %></p>
       <%= link_to "Website", @sponsor.website, :class => "btn btn-primary" %>
   </div>
-  <div class="span8">
-    <p><%= image_tag(@sponsor.logo.url(:small), :class => "pull-left") %><%= @sponsor.description %></p>
+  <div class="span7">
+    <%= image_tag(@sponsor.logo.url(:medium), :class => "pull-left") %><p class="offset1"><%= @sponsor.description %></p>
   </div>
 </div>
