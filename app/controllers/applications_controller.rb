@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
   def index
+    @workshops = Workshop.upcoming
   end
 
   def show

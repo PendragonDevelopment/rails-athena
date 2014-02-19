@@ -1,0 +1,23 @@
+<%= div_for(workshops, :class => 'row-fluid') do |w| %>
+  <h4><%= w.title %></h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Registered</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% w.applications.each do |app| %>
+      <tr>
+        <td><%= link_to app.user.name, app.user %></td>
+        <td><%= app.user.email %></td>
+        <td><%= app.created_at.to_date %></td>
+        <td><%= link_to "View application", application_path(app) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
