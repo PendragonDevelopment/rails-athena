@@ -17,8 +17,14 @@ class ApplicationsController < ApplicationController
     else
       @user = User.find_or_create_by_name_and_email(name: params[:user_name], email: params[:user_email])
       if @user.id.nil?
-        @user = User.invite!({email: params[:user_email], name: params[:user_name], phone: params[:user_phone]})
+        @user = User.invite!({email: params[:user_email], name: params[:user_name]})
         @user.add_role(:applicant) unless @user.has_role?(:admin) || @user.has_role?(:coach)
+        @user.phone = params[:user_phone]
+        @user.os = params[:user_os]
+        @user.twitter = params[:user_twitter]
+        @user.github = params[:user_github]
+        @user.shirt_size = params[:user_shirt]
+        @user.save
       end
     end
     @appl = @user.applications.build(application_params)

@@ -24,6 +24,30 @@
             <%= text_field_tag :user_phone, "", :class => 'input-xlarge' %>
           </div>
         </div>
+        <div class="control-group span5">
+          <%= label_tag :user_twitter, "Twitter (optional)", :class => 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag :user_twitter, "", :class => 'input-xlarge' %>
+          </div>
+        </div>
+        <div class="control-group span5">
+          <%= label_tag :user_github, "Github Username (optional)", :class => 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag :user_github, "", :class => 'input-xlarge' %>
+          </div>
+        </div>
+        <div class="control-group span5">
+          <%= label_tag :user_os, "Operating System", :class => 'control-label' %>
+          <div class="controls">
+            <%= select_tag :user_os, options_for_select(['Mac OS', 'Windows', 'Linux/GNU']) %>
+          </div>
+        </div>
+        <div class="control-group span5">
+          <%= label_tag :user_shirt, "Tshirt size", :class => 'control-label' %>
+          <div class="controls">
+            <%= select_tag :user_shirt, options_for_select(['XS', 'Small', 'Medium', 'Large', 'XL', 'XXL']) %>
+          </div>
+        </div>
       </fieldset>  
     </div>
   <% end %>
