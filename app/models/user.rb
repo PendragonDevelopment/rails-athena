@@ -47,5 +47,7 @@ class User < ActiveRecord::Base
   				 :through => :workshop_users
 
   has_many :applications
+
+  accepts_nested_attributes_for :applications
   
 end

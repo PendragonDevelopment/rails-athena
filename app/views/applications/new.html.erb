@@ -1,0 +1,75 @@
+<h3>Application for <%= @workshop.title.titleize %></h3>
+<%= simple_form_for(@appl, :html => {:class => 'form-horizontal form-validate' }) do |f| %>
+  <%= f.error_notification %>
+  <%= hidden_field_tag :workshop_id, @workshop.id %>
+  <% if !user_signed_in? %>
+    <div class="row-fluid">
+      <fieldset class="span12">
+        <legend>Personal info</legend>
+        <div class="control-group span5">
+          <%= label_tag :user_name, "Name", :class => 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag :user_name, "", :class => 'input-xlarge' %>
+          </div>
+        </div>
+        <div class="control-group span5">
+          <%= label_tag :user_email, "Email", :class => 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag :user_email, "", :class => 'input-xlarge' %>
+          </div>
+        </div>
+        <div class="control-group span5">
+          <%= label_tag :user_phone, "Phone", :class => 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag :user_phone, "", :class => 'input-xlarge' %>
+          </div>
+        </div>
+      </fieldset>
+    <% end %>  
+    </div>
+    <div class="row-fluid">
+      <fieldset class="span12">
+        <legend>Application info</legend>
+        <div class="control-group">
+          <%= f.label :experience_level, "What is your experience level with computers and technology?", :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_area :experience_level, cols:40, rows:5, :class => 'input-xxlarge' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :previous_experience, "Do you have any previous programming experience?", :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_area :previous_experience, cols:40, rows:5, :class => 'input-xxlarge' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :rails_experience, "Are you familiar with Ruby on Rails? Have you ever built anything with it?", :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_area :rails_experience, cols:40, rows:5, :class => 'input-xxlarge' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :good_candidate, "Why do you think you'll be a good candidate for this workshop? Do you have any plans to expand on what you learn?", :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_area :good_candidate, cols:40, rows:5, :class => 'input-xxlarge' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :why_rails, "Why do you want to learn Ruby on Rails?", :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_area :why_rails, cols:40, rows:5, :class => 'input-xxlarge' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :questions, "Do you have any questions for us?", :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_area :questions, cols:40, rows:5, :class => 'input-xxlarge' %>
+          </div>
+        </div>
+    </fieldset>  
+  </div>
+  <div class="form-actions span12">
+    <%= f.button :submit, "Submit application", :class => 'btn btn-primary' %>
+  </div>
+<% end %>
+    

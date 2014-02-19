@@ -569,10 +569,12 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 2em;
   font-size: 1.9500000000000002em;
   line-height: inherit;
-  border: 0;
+}
+
+legend + .control-group {
+  margin-top: 0;
 }
 
 label {

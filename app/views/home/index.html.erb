@@ -16,7 +16,16 @@
 </section>
 <div class="container">
   <div class="row-fluid">
-    <div class="span12">
+    <div class="span3 pull-right offset1">
+      <h4>Next event</h4>
+      <h5><%= link_to @next.title, workshop_path(@next) %></h5>
+      <% if ((@next.end_date - @next.start_date) / 1.day).round <= 0 %>
+        <h5><%= @next.end_date.strftime("%B %e, %Y") %></h5>
+      <% else %>
+        <h5><%= @next.start_date.strftime("%B %e") %> - <%= @next.end_date.strftime("%e, %Y") %></h5>
+      <% end %>
+    </div>
+    <div class="span8">
       <p>Rails Girls events are non-profit. We don’t charge the participants and do not pay for coaches or speakers. Participants don’t need any previous knowledge about programming and there are no age limitations. All the participants need is a laptop and some curiosity.</p>
       <p>The two-day event includes a lot of small group working and short focused talks on programming, design and web. </p>
     </div>

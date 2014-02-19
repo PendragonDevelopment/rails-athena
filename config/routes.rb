@@ -1,5 +1,12 @@
-# == Route Map (Updated 2014-02-18 11:02)
+# == Route Map (Updated 2014-02-18 21:14)
 #
+#             applications GET    /applications(.:format)            applications#index
+#                          POST   /applications(.:format)            applications#create
+#          new_application GET    /applications/new(.:format)        applications#new
+#         edit_application GET    /applications/:id/edit(.:format)   applications#edit
+#              application GET    /applications/:id(.:format)        applications#show
+#                          PUT    /applications/:id(.:format)        applications#update
+#                          DELETE /applications/:id(.:format)        applications#destroy
 #                workshops GET    /workshops(.:format)               workshops#index
 #                          POST   /workshops(.:format)               workshops#create
 #             new_workshop GET    /workshops/new(.:format)           workshops#new
@@ -48,6 +55,7 @@
 
 RailsLadiesAthens::Application.routes.draw do
   
+  resources :applications
   resources :workshops
   resources :sponsors
 
