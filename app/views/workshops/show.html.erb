@@ -1,12 +1,14 @@
 <h3><%= @workshop.title %></h3>
 <div class="row-fluid">
   <div class="span4 pull-right">
-  	<%= simple_form_for(@workshop, :url => add_sponsor_to_workshop_path, :html => {:class => 'form-horizontal form-validate' }) do |f| %>
-  		<%= f.error_notification %>
-  		<%= hidden_field_tag :workshop_id, @workshop.id %>
-  		<%= select_tag :sponsor_id, options_for_select(@sponsor_array), {:class => "span12"} %>
-  		<%= f.button :submit, "Add sponsor to workshop", :class => "btn btn-primary" %>
-  	<% end %>
+    <% if current_user.has_role?(:admin) %>
+    	<%= simple_form_for(@workshop, :url => add_sponsor_to_workshop_path, :html => {:class => 'form-horizontal form-validate' }) do |f| %>
+    		<%= f.error_notification %>
+    		<%= hidden_field_tag :workshop_id, @workshop.id %>
+    		<%= select_tag :sponsor_id, options_for_select(@sponsor_array), {:class => "span12"} %>
+    		<%= f.button :submit, "Add sponsor to workshop", :class => "btn btn-primary" %>
+    	<% end %>
+    <% end %>
   	<h4>Sponsors</h4>
   	<ul class="unstyled">
   		<% @sponsors.each do |sponsor| %>
@@ -15,6 +17,6 @@
   	</ul>
   </div>
   <div class="span8">
-  	
+  	<p><%= raw(@workshop.description) %></p>
   </div>
 </div>

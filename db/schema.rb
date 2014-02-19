@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140218045104) do
+ActiveRecord::Schema.define(:version => 20140219004034) do
+
+  create_table "applications", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "workshop_id"
+    t.text     "experience_level"
+    t.text     "previous_experience"
+    t.string   "rails_experience"
+    t.text     "good_candidate"
+    t.text     "why_rails"
+    t.text     "questions"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "applications", ["user_id"], :name => "index_applications_on_user_id"
+  add_index "applications", ["workshop_id"], :name => "index_applications_on_workshop_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
