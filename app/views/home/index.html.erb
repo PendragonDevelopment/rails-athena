@@ -36,7 +36,7 @@
       <h2>Sponsored in part by</h2>
       <% @sponsors.each do |s| %>
         <div class="span4">
-          <h3><%= link_to image_tag(s.logo.url(:medium)), sponsor_path(s), :class => "sponsor" %></h3>
+          <h3 class="sponsor"><%= link_to image_tag(s.logo.url(:medium)), sponsor_path(s) %></h3>
         </div>
       <% end %>  
     </div>
