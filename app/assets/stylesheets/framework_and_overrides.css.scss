@@ -719,9 +719,10 @@ main{
     position: relative;
   }
 }
-h3.sponsor{
+.span4.sponsor{
   text-align: center;
+  margin-left: 0;
 }
-h3.sponsor a:hover{
+.sponsor a:hover{
   border: 0;
 }
