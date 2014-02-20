@@ -1,7 +1,7 @@
 <h3><%= @workshop.title %></h3>
 <div class="row-fluid">
-  <div class="span4 pull-right">
-    <% if user_signed_in? && current_user.has_role?(:admin) %>
+  <div class="span3 pull-right offset1">
+    <% if user_signed_in? && current_user.has_role?(:admin) && !@sponsor_array.empty? %>
     	<%= simple_form_for(@workshop, :url => add_sponsor_to_workshop_path, :html => {:class => 'form-horizontal form-validate' }) do |f| %>
     		<%= f.error_notification %>
     		<%= hidden_field_tag :workshop_id, @workshop.id %>
