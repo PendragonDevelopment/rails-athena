@@ -18,6 +18,6 @@
   </div>
   <div class="span8">
   	<p><%= raw(@workshop.description) %></p>
-    <%= link_to "Apply for this workshop", new_application_path(:workshop_id => @workshop.id), :class => 'btn btn-primary pull-right' %>
+    <%= link_to "Apply for this workshop", apply_for_workshop_path(@workshop), :class => 'btn btn-primary pull-right' %>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <h3>Workshops and other events</h3>
 <% @workshops.each do |w| %>
   <div class="row-fluid">
-    <h4><%= link_to w.title, workshop_path(w) %><%= link_to "Apply for this workshop", new_application_path(:workshop_id => w.id), :class => 'btn btn-primary pull-right' %></h4>
+    <h4><%= link_to w.title, workshop_path(w) %><%= link_to "Apply for this workshop", apply_for_workshop_path(w), :class => 'btn btn-primary pull-right' %></h4>
     <% if ((w.end_date - w.start_date) / 1.day).round <= 0 %>
       <h5><%= w.end_date.strftime("%B %e, %Y") %></h5>
     <% else %>
