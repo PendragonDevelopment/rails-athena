@@ -31,4 +31,12 @@
       <p>The two-day event includes a lot of small group working and short focused talks on programming, design and web. </p>
     </div>
   </div>
+  <div class="row-fluid">
+    <h2>Sponsored in part by</h2>
+    <% @sponsors.each do |s| %>
+      <div class="span4">
+        <h3><%= link_to image_tag(s.logo.url(:medium)), sponsor_path(s) %></h3>
+      </div>
+    <% end %>
+  </div>
 </div>
