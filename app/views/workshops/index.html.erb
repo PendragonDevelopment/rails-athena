@@ -8,6 +8,6 @@
     <% else %>
       <h5><%= w.start_date.strftime("%B %e") %> - <%= w.end_date.strftime("%e, %Y") %></h5>
     <% end %>
-    <p><%= w.description %></p>
+    <p><%= raw(w.description) %></p>
   </div>
 <% end %>

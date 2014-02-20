@@ -6,7 +6,7 @@
   </div>
   <div class="span7">
     <%= image_tag(@sponsor.logo.url(:medium)) %>
-    <p class="offset1"><%= @sponsor.description %></p>
+    <p class="offset1"><%= raw(@sponsor.description) %></p>
   </div>
 </div>
 <div class="row-fluid">
