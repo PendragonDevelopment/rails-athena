@@ -35,10 +35,10 @@
     <div class="span12 text-center">
       <h3>Sponsored in part by</h3>
       <% @sponsors.each_slice(3) do |slice| %>
-        <div class="row-fluid">
+        <div class="row-fluid text-center">
           <% slice.each do |s| %>
-            <div class="span4 sponsor">
-              <h3><%= link_to image_tag(s.logo.url(:medium)), sponsor_path(s) %></h3>
+            <div class="sponsor-front">
+              <%= link_to image_tag(s.logo.url(:medium)), sponsor_path(s) %>
             </div>
           <% end %>  
         </div>

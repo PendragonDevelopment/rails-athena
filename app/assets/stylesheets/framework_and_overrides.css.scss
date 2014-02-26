@@ -719,10 +719,14 @@ main{
     position: relative;
   }
 }
-.span4.sponsor{
+.span4.sponsor {
   text-align: center;
   margin-left: 0;
 }
 .sponsor a:hover{
   border: 0;
+}
+.sponsor-front {
+  display: inline-block;
+  margin:0 2.5%;
 }
