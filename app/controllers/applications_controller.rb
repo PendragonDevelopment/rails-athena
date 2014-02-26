@@ -35,6 +35,7 @@ class ApplicationsController < ApplicationController
     @appl.workshop_id = @workshop.id
     @appl.save
     if @appl.save
+      AppMailer.app_submitted(@user).deliver
       redirect_to root_path, :notice => "Application submitted!"
     else
       render :new, :notice => "Check the errors below"
