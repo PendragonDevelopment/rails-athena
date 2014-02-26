@@ -3,7 +3,7 @@
   <div class="row-fluid">
     <% slice.each do |s| %>
       <div class="span6">
-        <h3><%= link_to image_tag(s.logo.url(:medium)), sponsor_path(s) %></h3>
+        <h3><%= link_to image_tag(s.logo.url(:medium), alt: s.name), sponsor_path(s), :class => "sponsor" %></h3>
         <p><%= raw(s.description) %></p>
       </div>
     <% end %>
