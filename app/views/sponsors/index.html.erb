@@ -1,9 +1,11 @@
 <h1>Sponsors</h1>
-<div class="row-fluid">
-  <% @sponsors.each do |s| %>
-    <div class="span6">
-      <h3><%= link_to image_tag(s.logo.url(:medium)), sponsor_path(s) %></h3>
-      <p><%= raw(s.description) %></p>
-    </div>
-  <% end %>
-</div>
+<% @sponsors.each_slice(2) do |slice| %>
+  <div class="row-fluid">
+    <% slice.each do |s| %>
+      <div class="span6">
+        <h3><%= link_to image_tag(s.logo.url(:medium)), sponsor_path(s) %></h3>
+        <p><%= raw(s.description) %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
