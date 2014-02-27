@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   has_many :workshops,
   				 :through => :workshop_users
 
-  has_many :applications
+  has_many :applications, :dependent => :destroy
 
   accepts_nested_attributes_for :applications
   
