@@ -10,6 +10,13 @@
   <% end %>
 </div>
 <div class="row-fluid">
+<p>Email: <%= @user.email if @user.email %></p>
+<p>Twitter: <a href="http://twitter.com/<%= @user.twitter.tr('@','') %>"><%= @user.twitter %></a></p>
+<p>Github: <a href="https://github.com/<%= @user.github %>"><%= @user.github %></a></p>
+<p>Operating System: <%= @user.os %></p>
+<p>T-Shirt size: <%= @user.shirt_size %></p>
+</div>
+<div class="row-fluid">
   <dl>
     <dt>What is your experience level with computers and technology?</dt>
     <dd><%= raw(@application.experience_level) %></dd>
