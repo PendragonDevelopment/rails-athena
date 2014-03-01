@@ -42,6 +42,13 @@ class ApplicationsController < ApplicationController
     end
   end
 
+
+  def destroy
+    @app = Application.find(params[:id])
+    @app.destroy
+    redirect_to applications_path, :notice => "Application removed"
+  end
+
   private
 
   def application_params

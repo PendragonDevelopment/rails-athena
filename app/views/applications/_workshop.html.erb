@@ -7,6 +7,7 @@
         <th>Email</th>
         <th>Registered</th>
         <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
         <td><%= app.user.email %></td>
         <td><%= app.created_at.to_date %></td>
         <td><%= link_to "View application", application_path(app) %></td>
+        <td><%= link_to raw("<i class='fa fa-trash-o'></i>"), application_path(app), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini' %></td>
       </tr>
     <% end %>
     </tbody>
