@@ -9,7 +9,7 @@ class WorkshopsController < ApplicationController
   	@sponsors = @workshop.sponsors
   	@allsponsors = Sponsor.all - @sponsors
   	@sponsor_array = @allsponsors.map { |sponsor| [sponsor.name, sponsor.id] } 
-    @agenda_items = @workshop.agenda_items
+    @agenda_items = @workshop.agenda_items.order(start: 'DESC')
   end
 
   def new

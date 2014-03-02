@@ -16,10 +16,10 @@
   <fieldset>
     <legend>Dates
       <div class="control-group">
-        <%= f.label :start, "Start date (dd/mm/yyy): ", :class => "control-label" %>
+        <%= f.label :start, "Start date: ", :class => "control-label" %>
         <div class="controls">
           <div id="start_date_field" class="input-append">
-            <%= f.text_field :start, :value => Time.now.strftime("%m/%d/%Y %I:%M %p"), 'data-format' => 'MM/dd/yyyy HH:mm PP', :class => "input-block-level" %>
+            <%= f.text_field :start, :value => Time.now.strftime("%m/%d/%Y %I:%M %p"), 'data-format' => 'dd/MM/yyyy HH:mm PP', :class => "input-block-level" %>
             <span class="add-on">
               <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="icon-calendar">
               </i>
@@ -28,10 +28,10 @@
         </div>
       </div>
       <div class="control-group">
-        <%= f.label :end_time, "End date (dd/mm/yyy): ", :class => "control-label" %>
+        <%= f.label :end_time, "End date: ", :class => "control-label" %>
         <div class="controls">
           <div id="end_date_field" class="input-append">
-            <%= f.text_field :end_time, :value => Time.now.strftime("%m/%d/%Y %I:%M %p"), 'data-format' => 'MM/dd/yyyy HH:mm PP', :class => "input-block-level" %>
+            <%= f.text_field :end_time, :value => Time.now.strftime("%m/%d/%Y %I:%M %p"), 'data-format' => 'dd/MM/yyyy HH:mm PP', :class => "input-block-level" %>
             <span class="add-on">
               <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="icon-calendar">
               </i>
