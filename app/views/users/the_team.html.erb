@@ -12,9 +12,9 @@
             <h5>Co-organizer</h5>
           <% else %>
             <h5><%= member.roles.last.name.titleize %></h5>
-          <% end %>
-          <p><%= raw(member.bio) %></p>  
+          <% end %>  
         </div>
+        <p><%= raw(member.bio) %></p>
       </div>
     <% end %>
   </div>
