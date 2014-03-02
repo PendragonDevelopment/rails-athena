@@ -17,7 +17,23 @@
   	</ul>
   </div>
   <div class="span8">
-  	<p><%= raw(@workshop.description) %></p>
-    <%= link_to "Apply for this workshop", apply_for_workshop_path(@workshop), :class => 'btn btn-primary pull-right' %>
+    <div class="row-fluid">
+      <div class="pull-right span3">
+        <%= link_to "Apply for this workshop", apply_for_workshop_path(@workshop), :class => 'btn btn-primary' %>
+        <%= link_to "Add agenda item", new_workshop_agenda_item_path(@workshop), :class => 'btn btn-primary' if current_user.has_role?(:admin) %>
+      </div>
+      <p><%= raw(@workshop.description) %></p>  
+    </div>
+    <% @agenda_items.each do |item| %>
+      <div class="row-fluid">
+        <div class="span3">
+          <h4><%= item.start.strftime("%I:%M %P") %> - <%= item.end_time.strftime("%I:%M %P") %></h4>
+        </div>
+        <div class="span9">
+          <h4><%= item.title %></h4>
+          <p><%= raw(item.description) %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

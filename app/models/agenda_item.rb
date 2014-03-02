@@ -15,6 +15,6 @@
 class AgendaItem < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
   
-  belongs_to :application
+  belongs_to :workshop
 
 end

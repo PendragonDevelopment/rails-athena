@@ -63,10 +63,10 @@
 
 RailsLadiesAthens::Application.routes.draw do
 
-  resources :applications do
+  resources :applications 
+  resources :workshops do
     resources :agenda_items
   end
-  resources :workshops
   resources :sponsors
 
   match 'apply_for_workshop/:workshop_id', :to => "applications#new", as: :apply_for_workshop

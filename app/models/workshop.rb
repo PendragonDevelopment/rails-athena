@@ -35,6 +35,9 @@ class Workshop < ActiveRecord::Base
   has_many :users,
            :through => :workshop_users
 
+  has_many :agenda_items,
+           :dependent => :destroy
+
   def self.upcoming
     where(['start_date > ?', DateTime.now]).order("start_date ASC")
   end

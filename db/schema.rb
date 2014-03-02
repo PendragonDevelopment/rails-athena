@@ -11,19 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140302025428) do
+ActiveRecord::Schema.define(:version => 20140302182910) do
 
   create_table "agenda_items", :force => true do |t|
-    t.integer  "application_id"
     t.datetime "start"
     t.datetime "end_time"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "workshop_id"
   end
 
-  add_index "agenda_items", ["application_id"], :name => "index_agenda_items_on_application_id"
+  add_index "agenda_items", ["workshop_id"], :name => "index_agenda_items_on_workshop_id"
 
   create_table "applications", :force => true do |t|
     t.integer  "user_id"

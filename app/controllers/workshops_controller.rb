@@ -9,6 +9,7 @@ class WorkshopsController < ApplicationController
   	@sponsors = @workshop.sponsors
   	@allsponsors = Sponsor.all - @sponsors
   	@sponsor_array = @allsponsors.map { |sponsor| [sponsor.name, sponsor.id] } 
+    @agenda_items = @workshop.agenda_items
   end
 
   def new
@@ -35,6 +36,12 @@ class WorkshopsController < ApplicationController
 
   def update
   	@workshop = Workshop.find(params[:id])
+    @workshop.update_attributes(workshop_params)
+    if @workshop.save
+      redirect_to workshop_path(@workshop), :notice => 'Workshop updated.'
+    else
+      render :edit, :notice => 'Something went wrong.'
+    end
   end
 
   def add_sponsor_to_workshop

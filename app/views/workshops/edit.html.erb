@@ -1,2 +1,80 @@
-<h1>Workshops#edit</h1>
-<p>Find me in app/views/workshops/edit.html.erb</p>
+<h3>Edit workshop</h3>
+<%= simple_form_for(@workshop, :html => {:class => 'form-horizontal form-validate' }) do |f| %>
+  <%= f.error_notification %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.input_field :title, :class => 'input-xxlarge' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, cols:40, rows:5, :class => 'input-xxlarge' %>
+    </div>
+  </div>
+  <fieldset>
+    <legend>Address</legend>
+    <div class="control-group">
+      <%= f.label :street, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.input_field :street, :class => 'input-xxlarge' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :street2, "Suite/Apt/Building (if necessary)", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.input_field :street2, :class => 'input-xxlarge' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :city, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.input_field :city, :class => 'input-xxlarge' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :state, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :state, options_for_select(us_states), {}, {:class => 'input-xxlarge'} %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :zipcode, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.input_field :zipcode, :class => 'input-xxlarge' %>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Dates
+      <div class="control-group">
+        <%= f.label :start_date, "Date (dd/mm/yyy): ", :class => "control-label" %>
+        <div class="controls">
+          <div id="start_date_field" class="input-append">
+            <%= f.text_field :start_date, :value => @workshop.start_date.strftime("%m/%d/%Y %I:%M %p"), 'data-format' => 'MM/dd/yyyy HH:mm PP', :class => "input-block-level" %>
+            <span class="add-on">
+              <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="icon-calendar">
+              </i>
+            </span> 
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :end_date, "Date (dd/mm/yyy): ", :class => "control-label" %>
+        <div class="controls">
+          <div id="end_date_field" class="input-append">
+            <%= f.text_field :end_date, :value => @workshop.end_date.strftime("%m/%d/%Y %I:%M %p"), 'data-format' => 'MM/dd/yyyy HH:mm PP', :class => "input-block-level" %>
+            <span class="add-on">
+              <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="icon-calendar">
+              </i>
+            </span> 
+          </div>
+        </div>
+      </div>
+    </legend>
+  </fieldset>
+  <div class="form-actions">
+    <%= f.button :submit, 'Update workshop', :class => 'btn btn-primary' %>
+  </div>
+<% end %>
