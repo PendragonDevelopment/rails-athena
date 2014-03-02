@@ -1,4 +1,6 @@
-<h3>The Team</h3>
+<h2>The Team</h2>
 <% @team.each do |member| %>
-	<div><%= member.name %></div>
+	<div class="span4">
+    <h3><%= member.name %></h3>
+  </div>
 <% end %>
