@@ -1,4 +1,4 @@
-<h3>Add an Agenda item</h3>
+<h3>Add an Agenda item for <%= @workshop.title %></h3>
 <%= simple_form_for([@workshop, @agenda_item], :html => {:class => 'form-horizontal form-validate' }) do |f| %>
   <%= f.error_notification %>
   <div class="control-group">
