@@ -41,6 +41,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    if params.has_key?(:user_id)
+      @user = User.find(params[:user_id])
+    else
+      @user = current_user
+    end
+  end
+
+  def edit_profile
+    @user = User.find(params[:user_id])
+    if @user.update_attributes(user_params)
+      redirect_to user_path(@user), :notice => "User updated."
+    else
+      redirect_to root_path, :alert => "Unable to update user."
+    end
+  end
+
   private
 
   # Require that :user be a key in the params Hash,
@@ -49,9 +66,13 @@ class UsersController < ApplicationController
 
   def user_params
     if current_user && current_user.has_role?(:admin)
-      params.require(:user).permit(:name, :email, :role_ids)
+      params.require(:user).permit(:name, :email, :os, :github,
+                                   :phone, :twitter, :shirt_size,
+                                   :avatar, :bio, :role_ids)
     else
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :os, :github,
+                                   :phone, :twitter, :shirt_size,
+                                   :avatar, :bio)
     end
   end
 end

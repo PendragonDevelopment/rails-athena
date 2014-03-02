@@ -1,0 +1,72 @@
+<div class="row-fluid">
+  <div class="box box-bordered box-color">
+    <div class="box-title">
+      <h3>Edit your profile</h3>
+    </div>
+    <div class="box-content nopadding">
+      <%= simple_form_for(@user, :url => edit_profile_path, :html => { :class => 'form-horizontal form-bordered' }) do |f| %>
+      <%= f.error_notification %>
+      <%= hidden_field_tag :user_id, @user.id %>
+      <div class="control-group">
+        <%= f.label :name, :class => "control-label" %>
+        <div class="controls">
+          <%= f.input_field :name, :class => "input-xlarge" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :email, :class => "control-label" %>
+        <div class="controls">
+          <%= f.input_field :email, :required => true, :class => "input-xlarge" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :phone, :class => "control-label" %>
+        <div class="controls">
+          <%= f.input_field :phone, :class => "input-xlarge mask_phone" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :github, :class => "control-label" %>
+        <div class="controls">
+          <%= f.input_field :github, :class => "input-xlarge" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :twitter, :class => "control-label" %>
+        <div class="controls">
+          <%= f.input_field :twitter, :class => "input-xlarge" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :os, "Operating System", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.input_field :os, collection: (['Mac OS', 'Windows', 'Linux/GNU']) %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :shirt_size, "Tshirt size", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.input_field :shirt_size, collection: (['XS', 'Small', 'Medium', 'Large', 'XL', 'XXL']) %>
+        </div>
+      </div>
+      <% if @user.has_role?(:admin) || @user.has_role?(:coach) || @user.has_role?(:volunteer) %>
+        <div class="control-group">
+          <%= f.label :bio, "Biography", :class => "control-label" %>
+          <div class="controls">
+            <%= f.text_area :bio, cols:40, rows:5, :class => 'input-xxlarge' %>
+          </div>
+        </div>
+      <% end %>
+      <div class="control-group">
+        <%= f.label :avatar, "Upload avatar", :class => "control-label" %>
+        <div class="controls">
+          <%= f.input_field :avatar, :class => "input-block-level" %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, 'Update', :class => 'btn-green' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

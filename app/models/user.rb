@@ -28,6 +28,11 @@
 #  invitation_limit       :integer
 #  invited_by_id          :integer
 #  invited_by_type        :string(255)
+#  avatar_file_name       :string(255)
+#  avatar_content_type    :string(255)
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
+#  bio                    :text
 #
 
 class User < ActiveRecord::Base
@@ -35,6 +40,7 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   rolify
+  attr_accessor :avatar
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -49,5 +55,14 @@ class User < ActiveRecord::Base
   has_many :applications, :dependent => :destroy
 
   accepts_nested_attributes_for :applications
+
+  has_attached_file :avatar, styles: {
+                      thumb: '25x25#',
+                      small: '100x100#',
+                      medium: '300x300>'
+                    },
+                    :default_url => "http://placehold.it/25x25"
+
+  validates_attachment :avatar, :content_type => { :content_type => ["image/jpg","image/jpeg", "image/gif", "image/png"] }
   
 end

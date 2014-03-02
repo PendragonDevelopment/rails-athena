@@ -28,6 +28,11 @@
 #  invitation_limit       :integer
 #  invited_by_id          :integer
 #  invited_by_type        :string(255)
+#  avatar_file_name       :string(255)
+#  avatar_content_type    :string(255)
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
+#  bio                    :text
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

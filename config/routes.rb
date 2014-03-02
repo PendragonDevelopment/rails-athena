@@ -71,6 +71,8 @@ RailsLadiesAthens::Application.routes.draw do
 
   match 'apply_for_workshop/:workshop_id', :to => "applications#new", as: :apply_for_workshop
 
+  match 'users/profile', :to => 'users#profile'
+  match 'users/edit_profile', :to => 'users#edit_profile', as: :edit_profile
   match 'the_team', :to => 'users#the_team', as: :the_team
   match 'add_sponsor_to_workshop', :to => 'workshops#add_sponsor_to_workshop', as: :add_sponsor_to_workshop
   authenticated :user do
