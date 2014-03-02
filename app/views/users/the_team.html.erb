@@ -1,6 +1,10 @@
 <h2>The Team</h2>
-<% @team.each do |member| %>
-	<div class="span4">
-    <h3><%= member.name %></h3>
+<% @team.each_slice(3) do |slice| %>
+  <div class="row-fluid">
+    <% slice.each do |member| %>
+      <div class="span4">
+        <h3><%= member.name %></h3>
+      </div>
+    <% end %>
   </div>
 <% end %>
