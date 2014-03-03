@@ -9,6 +9,8 @@
     		<%= f.button :submit, "Add sponsor to workshop", :class => "btn btn-primary" %>
     	<% end %>
     <% end %>
+    <h4>Address</h4>
+    <%= @workshop.address %>
   	<h4>Sponsors</h4>
   	<ul class="unstyled">
   		<% @sponsors.each do |sponsor| %>
