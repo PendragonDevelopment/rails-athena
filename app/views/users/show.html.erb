@@ -2,8 +2,12 @@
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 <p>Phone: <%= @user.phone %></p>
-<p>Twitter: <a href="http://twitter.com/<%= @user.twitter.tr('@','') %>"><%= @user.twitter %></a></p>
-<p>Github: <a href="https://github.com/<%= @user.github %>"><%= @user.github %></a></p>
+<% if !@user.twitter.nil? %>
+  <p>Twitter: <a href="http://twitter.com/<%= @user.twitter.tr('@','') %>"><%= @user.twitter %></a></p>
+<% end %>
+<% if !@user.github.nil? %>
+  <p>Github: <a href="https://github.com/<%= @user.github %>"><%= @user.github %></a></p>
+<% end %>
 <p>Operating System: <%= @user.os %></p>
 <p>T-Shirt size: <%= @user.shirt_size %></p>
 <p>Avatar: <%= image_tag(@user.avatar.url(:small)) %></p>
