@@ -10,7 +10,7 @@
     	<% end %>
     <% end %>
     <h4>Address</h4>
-    <%= @workshop.address %>
+    <%= raw(@workshop.address) %>
   	<h4>Sponsors</h4>
   	<ul class="unstyled">
   		<% @sponsors.each do |sponsor| %>
