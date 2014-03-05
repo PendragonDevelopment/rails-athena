@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    authorize! :show, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
   end
   
@@ -42,6 +43,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    authorize! :profile, @user, :message => 'Not authorized as an administrator.'
     if params.has_key?(:user_id)
       @user = User.find(params[:user_id])
     else

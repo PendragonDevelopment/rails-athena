@@ -1,4 +1,5 @@
 class WorkshopsController < ApplicationController
+  load_and_authorize_resource
   def index
   	@workshops = Workshop.upcoming
     @next = @workshops.next

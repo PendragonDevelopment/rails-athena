@@ -22,7 +22,7 @@
     <div class="row-fluid">
       <div class="pull-right span3">
         <%= link_to "Apply for this workshop", apply_for_workshop_path(@workshop), :class => 'btn btn-primary' %>
-        <%= link_to "Add agenda item", new_workshop_agenda_item_path(@workshop), :class => 'btn btn-primary' if current_user.has_role?(:admin) %>
+        <%= link_to "Add agenda item", new_workshop_agenda_item_path(@workshop), :class => 'btn btn-primary' if user_signed_in? && current_user.has_role?(:admin) %>
       </div>
       <p><%= raw(@workshop.description) %></p>  
     </div>

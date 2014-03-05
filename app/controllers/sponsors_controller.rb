@@ -1,4 +1,5 @@
 class SponsorsController < ApplicationController
+  load_and_authorize_resource
   def index
   	@sponsors = Sponsor.all
   end
