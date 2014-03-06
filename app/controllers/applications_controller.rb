@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :only => [:index, :show]
+
   def index
     @workshops = Workshop.upcoming
   end

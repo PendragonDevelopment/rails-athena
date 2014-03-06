@@ -9,7 +9,6 @@ class Ability
       can :read, Workshop
       can :read, Sponsor
       can :read, AgendaItem
-      can :create, Application
       cannot :read, Application
     end
     # Define abilities for the passed in user here. For example:
