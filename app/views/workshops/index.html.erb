@@ -5,7 +5,7 @@
     <% if ((w.end_date - w.start_date) / 1.day).round <= 0 %>
       <h5><%= w.end_date.strftime("%B %e, %Y") %></h5>
     <% else %>
-      <h5><%= w.start_date.strftime("%B %e") %> - <%= w.end_date.strftime("%e, %Y") %></h5>
+      <h5><%= w.start_date.strftime("%B %e at %I:%M %P") %> - <%= w.end_date.strftime("%B %e at %I:%M %P") %></h5>
     <% end %>
     <p><%= raw(w.description) %></p>
   </div>
