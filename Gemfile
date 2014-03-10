@@ -19,6 +19,7 @@ gem 'figaro'
 gem 'rolify'
 gem 'simple_form'
 gem 'thin'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 # Twelve Factor gem
 gem 'rails_12factor', group: :production
