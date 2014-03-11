@@ -714,6 +714,10 @@ main{
   margin-top: .75em;
 }
 
+.sponsor a:hover, a[href^="sponsors"]:hover {
+  border: 0;
+}
+
 @media (max-width: 979px){
   .nav-collapse .dropdown-menu{
     position: relative;
@@ -722,9 +726,6 @@ main{
 .span4.sponsor {
   text-align: center;
   margin-left: 0;
-}
-.sponsor a:hover{
-  border: 0;
 }
 .sponsor-front {
   display: inline-block;

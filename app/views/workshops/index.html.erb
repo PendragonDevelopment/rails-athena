@@ -8,5 +8,6 @@
       <h5><%= w.start_date.getlocal.strftime("%B %e at %I:%M %P") %> - <%= w.end_date.getlocal.strftime("%B %e at %I:%M %P") %></h5>
     <% end %>
     <p><%= raw(w.description) %></p>
+    <%= link_to "Workshop Details", workshop_path(w), :class => 'btn btn-primary pull-right' %>
   </div>
 <% end %>
