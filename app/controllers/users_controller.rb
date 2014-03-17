@@ -43,7 +43,6 @@ class UsersController < ApplicationController
   end
 
   def profile
-    authorize! :profile, @user, :message => 'Not authorized as an administrator.'
     if params.has_key?(:user_id)
       @user = User.find(params[:user_id])
     else
