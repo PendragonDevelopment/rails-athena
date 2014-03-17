@@ -10,6 +10,7 @@ class Ability
       can :read, Sponsor
       can :read, AgendaItem
       cannot :read, Application
+      can :manage, User, :id => user.id
     end
     # Define abilities for the passed in user here. For example:
     #
