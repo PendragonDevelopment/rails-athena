@@ -1,7 +1,7 @@
 <h2>The Team</h2>
 <% @team.each do |member| %>
   <div class="row-fluid">
-    <div class="span4">
+    <div class="span2">
       <%= image_tag(member.avatar.url(:small)) %>
       <h4><%= member.name %></h4>
       <% if member.roles.last.name == 'admin' %>
@@ -10,7 +10,7 @@
         <h5><%= member.roles.last.name.titleize %></h5>
       <% end %>
     </div>
-    <div class="span8">
+    <div class="span10">
       <p><%= raw(member.bio) %></p>
     </div> 
   </div>
