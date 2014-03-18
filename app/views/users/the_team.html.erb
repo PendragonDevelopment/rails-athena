@@ -2,7 +2,7 @@
 <% @team.each_slice(3) do |slice| %>
   <div class="row-fluid">
     <% slice.each do |member| %>
-      <div class="span4">
+      <div class="span3 offset1">
         <div class="row">
           <div class="span4">
             <%= image_tag(member.avatar.url(:small)) %>
