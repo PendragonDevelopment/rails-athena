@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:the_team]
+  load_and_authorize_resource :except => [:profile, :edit_profile]
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
