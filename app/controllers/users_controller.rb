@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def the_team
     @team = []
-    @users = User.all
+    @users = User.order('updated_at DESC').all
     @users.each do |user|
       if user.has_role?(:admin) || user.has_role?(:coach) || user.has_role?(:volunteer)
         @team << user
