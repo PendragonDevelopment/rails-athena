@@ -1,25 +1,17 @@
 <h2>The Team</h2>
-<% @team.each_slice(3) do |slice| %>
+<% @team.each do |member| %>
   <div class="row-fluid">
-    <% slice.each do |member| %>
-      <div class="span3 offset1">
-        <div class="row">
-          <div class="span4">
-            <%= image_tag(member.avatar.url(:small)) %>
-          </div>
-          <div class="span8">
-            <h4><%= member.name %></h4>
-            <% if member.roles.last.name == 'admin' %>
-              <h5>Co-organizer</h5>
-            <% else %>
-              <h5><%= member.roles.last.name.titleize %></h5>
-            <% end %>  
-          </div>  
-        </div>
-        <div class="row">
-          <p><%= raw(member.bio) %></p>
-        </div>
-      </div>
-    <% end %>
+    <div class="span4">
+      <%= image_tag(member.avatar.url(:small)) %>
+      <h4><%= member.name %></h4>
+      <% if member.roles.last.name == 'admin' %>
+        <h5>Co-organizer</h5>
+      <% else %>
+        <h5><%= member.roles.last.name.titleize %></h5>
+      <% end %>
+    </div>
+    <div class="span8">
+      <p><%= raw(member.bio) %></p>
+    </div> 
   </div>
 <% end %>
