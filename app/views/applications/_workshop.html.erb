@@ -4,8 +4,9 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Email</th>
+        <th>TShirt Size</th>
         <th>Registered</th>
+        <th>Accepted?</th>
         <th></th>
         <th></th>
       </tr>
@@ -14,9 +15,10 @@
     <% w.applications.each do |app| %>
       <tr>
         <td><%= link_to app.user.name, app.user %></td>
-        <td><%= app.user.email %></td>
+        <td><%= app.user.shirt_size %></td>
         <td><%= app.created_at.to_date %></td>
-        <td><%= link_to "View application", application_path(app) %></td>
+        <td><%= app.user.roles.first.name %></td>
+        <td><%= link_to "Application", application_path(app) %></td>
         <td><%= link_to raw("<i class='fa fa-trash-o'></i>"), application_path(app), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini' %></td>
       </tr>
     <% end %>
