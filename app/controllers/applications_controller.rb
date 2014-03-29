@@ -3,6 +3,7 @@ class ApplicationsController < ApplicationController
 
   def index
     @workshops = Workshop.upcoming
+    @attendees = User.with_role(:attendee).count
   end
 
   def show

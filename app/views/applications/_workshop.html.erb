@@ -1,5 +1,6 @@
 <%= div_for(workshops, :class => 'row-fluid') do |w| %>
   <h4><%= w.title %></h4>
+  <p># of attendees: <%= @attendees %></p>
   <table class="table table-striped datatable">
     <thead>
       <tr>
@@ -17,7 +18,13 @@
         <td><%= link_to app.user.name, app.user %></td>
         <td><%= app.user.shirt_size %></td>
         <td><%= app.created_at.to_date %></td>
-        <td><%= app.user.roles.first.name %></td>
+        <% if app.user.roles.first.name == 'attendee' %>
+          <td>Yes</td>
+        <% elsif app.user.roles.first.name == 'applicant' %>
+          <td>Pending</td>
+        <% else %>
+          <td>No</td>
+        <% end %>
         <td><%= link_to "Application", application_path(app) %></td>
         <td><%= link_to raw("<i class='fa fa-trash-o'></i>"), application_path(app), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini' %></td>
       </tr>
