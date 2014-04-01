@@ -17,7 +17,7 @@ class SponsorsController < ApplicationController
   end
 
   def create
-    @sponsor = Sponsor.new(sponsor_params)
+    @sponsor = Sponsor.new(params[:sponsor])
     if @sponsor.save
       redirect_to sponsor_path(@sponsor), :notice => "Sponsor created."
     else
