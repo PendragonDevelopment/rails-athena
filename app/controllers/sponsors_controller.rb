@@ -1,5 +1,5 @@
 class SponsorsController < ApplicationController
-  load_and_authorize_resource
+
   def index
   	@sponsors = Sponsor.all
   end
@@ -17,7 +17,7 @@ class SponsorsController < ApplicationController
   end
 
   def create
-    @sponsor = Sponsor.new(params[:sponsor])
+    @sponsor = Sponsor.new(sponsor_params)
     if @sponsor.save
       redirect_to sponsor_path(@sponsor), :notice => "Sponsor created."
     else

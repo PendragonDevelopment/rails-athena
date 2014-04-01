@@ -25,6 +25,7 @@ class Sponsor < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
   extend FriendlyId
   friendly_id :name, use: :slugged
+  
   attr_accessor :logo
 
   has_many :workshop_sponsors,
