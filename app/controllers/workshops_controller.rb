@@ -25,8 +25,10 @@ class WorkshopsController < ApplicationController
     @workshop = Workshop.new(workshop_params)
     @start_date = Time.strptime(params[:workshop][:start_date], "%m/%d/%Y %I:%M %p")
     @end_date = Time.strptime(params[:workshop][:end_date], "%m/%d/%Y %I:%M %p")
+    @deadline = Time.strptime(params[:workshop][:deadline], "%m/%d/%Y %I:%M %p")
     @workshop.start_date = @start_date
     @workshop.end_date = @end_date
+    @workshop.deadline = @deadline
     @workshop.save
     if @workshop.save
       redirect_to workshop_path(@workshop), :notice => "Workshop created."
@@ -38,6 +40,13 @@ class WorkshopsController < ApplicationController
   def update
   	@workshop = Workshop.find(params[:id])
     @workshop.update_attributes(workshop_params)
+    @start_date = Time.strptime(params[:workshop][:start_date], "%m/%d/%Y %I:%M %p")
+    @end_date = Time.strptime(params[:workshop][:end_date], "%m/%d/%Y %I:%M %p")
+    @deadline = Time.strptime(params[:workshop][:deadline], "%m/%d/%Y %I:%M %p")
+    @workshop.start_date = @start_date
+    @workshop.end_date = @end_date
+    @workshop.deadline = @deadline
+    @workshop.save
     if @workshop.save
       redirect_to workshop_path(@workshop), :notice => 'Workshop updated.'
     else
@@ -56,6 +65,6 @@ class WorkshopsController < ApplicationController
 
   def workshop_params
   	params.require(:workshop).permit(:title, :start_date, :end_date, :street, :street2,
-  																	 :city, :state, :zipcode, :description)
+  																	 :city, :state, :zipcode, :description, :deadline)
   end
 end

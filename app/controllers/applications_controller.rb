@@ -14,7 +14,11 @@ class ApplicationsController < ApplicationController
 
   def new
     @workshop = Workshop.find(params[:workshop_id])
-    @appl = Application.new
+    if (Time.zone.now - @workshop.deadline).to_i / (24 * 60 * 60) > 0
+      redirect_to @workshop, :notice => 'Applications are closed!'
+    else
+      @appl = Application.new
+    end
   end
 
   def create

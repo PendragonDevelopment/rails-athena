@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140302182910) do
+ActiveRecord::Schema.define(:version => 20140401162603) do
 
   create_table "agenda_items", :force => true do |t|
     t.datetime "start"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20140302182910) do
     t.text     "questions"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.datetime "deadline"
   end
 
   add_index "applications", ["user_id"], :name => "index_applications_on_user_id"
@@ -150,6 +151,7 @@ ActiveRecord::Schema.define(:version => 20140302182910) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "slug"
+    t.datetime "deadline"
   end
 
 end
