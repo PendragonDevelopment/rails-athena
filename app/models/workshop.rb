@@ -39,7 +39,7 @@ class Workshop < ActiveRecord::Base
            :dependent => :destroy
 
   def self.upcoming
-    where(['start_date > ?', DateTime.now]).order("start_date ASC")
+    where(['end_date > ?', DateTime.now]).order("end_date ASC")
   end
 
   def self.next
