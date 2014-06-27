@@ -49,7 +49,7 @@
 	<fieldset>
 		<legend>Dates
 			<div class="control-group">
-				<%= f.label :start_date, "Date (dd/mm/yyy): ", :class => "control-label" %>
+				<%= f.label :start_date, "Start Date (dd/mm/yyy): ", :class => "control-label" %>
 				<div class="controls">
 					<div id="start_date_field" class="input-append">
 						<%= f.text_field :start_date, :value => Time.now.strftime("%m/%d/%Y %I:%M %p"), 'data-format' => 'MM/dd/yyyy HH:mm PP', :class => "input-block-level" %>
@@ -61,7 +61,7 @@
 				</div>
 			</div>
 			<div class="control-group">
-				<%= f.label :end_date, "Date (dd/mm/yyy): ", :class => "control-label" %>
+				<%= f.label :end_date, "End Date (dd/mm/yyy): ", :class => "control-label" %>
 				<div class="controls">
 					<div id="end_date_field" class="input-append">
 						<%= f.text_field :end_date, :value => Time.now.strftime("%m/%d/%Y %I:%M %p"), 'data-format' => 'MM/dd/yyyy HH:mm PP', :class => "input-block-level" %>
@@ -73,9 +73,9 @@
 				</div>
 			</div>
 			<div class="control-group">
-				<%= f.label :deadline, "Date (dd/mm/yyy): ", :class => "control-label" %>
+				<%= f.label :deadline, "Deadline Date (dd/mm/yyy): ", :class => "control-label" %>
 				<div class="controls">
-					<div id="start_date_field" class="input-append">
+					<div id="deadline_field" class="input-append">
 						<%= f.text_field :deadline, :value => Time.now.strftime("%m/%d/%Y %I:%M %p"), 'data-format' => 'MM/dd/yyyy HH:mm PP', :class => "input-block-level" %>
 						<span class="add-on">
 							<i data-time-icon="icon-time" data-date-icon="icon-calendar" class="icon-calendar">
